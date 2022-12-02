@@ -50,6 +50,11 @@
             "description": "Username or ID of users to give access of inline search. Separate multiple users by space.\nLeave it empty if you don't want to restrict bot usage.",
             "required": false
         },
+        "OMDB_API_KEY": {
+            "description": "Your OMBD API KEY, Fill if you want to generate a imdb poster of movie in autofilter.",
+            "value": "",
+            "required": false
+        },
         "AUTH_CHANNEL": {
             "description": "ID of channel.Make sure bot is admin in this channel. Without subscribing this channel users cannot use bot.",
             "required": false
