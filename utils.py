@@ -1,5 +1,6 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
+from motor.motor_asyncio import AsyncIOMotorClient
 from info import AUTH_CHANNEL, API_KEY
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
