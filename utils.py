@@ -24,13 +24,7 @@ BTN_URL_REGEX = re.compile(
     r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))"
 )
 
-client = AsyncIOMotorClient(DATABASE_URI)
-db = client[DATABASE_NAME]
-instance = Instance.from_db(db)
-
-IClient = AsyncIOMotorClient(DATABASE_URI_2)
-imdbdb=client[DATABASE_NAME_2]
-imdb=Instance.from_db(imdbdb)
+imdb = IMDb() 
 
 BANNED = {}
 SMART_OPEN = '“'
