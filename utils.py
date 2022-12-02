@@ -1,6 +1,7 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
 from umongo import Instance, Document, fields
+from motor.motor_asyncio import AsyncIOMotorClient
 from info import AUTH_CHANNEL, API_KEY
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
@@ -24,7 +25,13 @@ BTN_URL_REGEX = re.compile(
     r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))"
 )
 
-imdb = IMDb() 
+client = AsyncIOMotorClient(DATABASE_URI)
+db = client[DATABASE_NAME]
+instance = Instance.from_db(db)
+
+IClient = AsyncIOMotorClient(DATABASE_URI_2)
+imdbdb=client[DATABASE_NAME_2]
+imdb=Instance.from_db(imdbdb)
 
 BANNED = {}
 SMART_OPEN = '“'
