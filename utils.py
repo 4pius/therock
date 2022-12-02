@@ -13,7 +13,10 @@ from typing import List
 from database.users_chats_db import db
 from bs4 import BeautifulSoup
 import requests
-
+from info import DATABASE_URI, DATABASE_NAME, COLLECTION_NAME, USE_CAPTION_FILTER, AUTH_CHANNEL, API_KEY
+DATABASE_URI_2=os.environ.get('DATABASE_URI_2', DATABASE_URI)
+DATABASE_NAME_2=os.environ.get('DATABASE_NAME_2', DATABASE_NAME)
+COLLECTION_NAME_2="Posters"
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -21,6 +24,12 @@ BTN_URL_REGEX = re.compile(
     r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))"
 )
 
+client = AsyncIOMotorClient(DATABASE_URI)
+db = client[DATABASE_NAME]
+instance = Instance.from_db(db)
+
+IClient = AsyncIOMotorClient(DATABASE_URI_2)
+imdbdb=client[DATABASE_NAME_2]
 imdb=Instance.from_db(imdbdb)
 
 BANNED = {}
