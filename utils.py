@@ -1,5 +1,6 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
+from umongo import Instance, Document, fields
 from motor.motor_asyncio import AsyncIOMotorClient
 from info import AUTH_CHANNEL, API_KEY
 import asyncio
