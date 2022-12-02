@@ -131,7 +131,6 @@ async def get_all(list):
         year=y.get("Year")[:4]
         id=y.get("imdbID")
         await save_poster(id, v, year, poster)
-    }
     
 # https://github.com/odysseusmax/animated-lamp/blob/2ef4730eb2b5f0596ed6d03e7b05243d93e3415b/bot/utils/broadcast.py#L37
 
