@@ -53,16 +53,6 @@ async def is_subscribed(bot, query):
 
     return False
 
-@imdb.register
-class Poster(Document):
-    imdb_id = fields.StrField(attribute='_id')
-    title = fields.StrField()
-    poster = fields.StrField()
-    year= fields.IntField(allow_none=True)
-
-    class Meta:
-        collection_name = COLLECTION_NAME_2
-
 async def save_poster(imdb_id, title, year, url):
     try:
         data = Poster(
