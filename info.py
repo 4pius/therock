@@ -36,6 +36,13 @@ DATABASE_URI = environ.get('DATABASE_URI', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Rajappan")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
+# Messages
+OMDB_API_KEY = environ.get("OMDB_API_KEY", "")
+if OMDB_API_KEY.strip() == "":
+    API_KEY=None
+else:
+    API_KEY=OMDB_API_KEY
+    
 # Others
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'TeamEvamaria')
@@ -45,7 +52,6 @@ SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "False")), False)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "<code>{file_name}</code>\n\n➠ 𝗝𝗼𝗶𝗻 : <b>@Lordshipmovies</b>")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
 IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "🧿 ᴛɪᴛᴛʟᴇ :  <b>{title}</b> \n🌟 ʀᴀᴛɪɴɢ : <b>{rating}</b> \n🎭 ɢᴇɴʀᴇ : <b>{genres}</b> \n📆 ʀᴇʟᴇᴀsᴇ : <b>{year}</b> \n🎙️ʟᴀɴɢᴜᴀɢᴇ : <b>{languages}</b> \n\n★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : <b>@Lordshiptv</b>")
-LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
 INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', LOG_CHANNEL))
